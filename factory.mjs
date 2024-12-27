@@ -5,45 +5,47 @@ import eslintConfigPrettier from 'eslint-config-prettier';
 import pluginVue from 'eslint-plugin-vue';
 import unusedImports from 'eslint-plugin-unused-imports';
 import globals from 'globals';
+import gitignore from 'eslint-config-flat-gitignore';
 
 import { FlatCompat } from '@eslint/eslintrc';
 
 const compat = new FlatCompat({ baseDirectory: import.meta.dirname });
 
 /**
- * @param {{ isNuxtModule: boolean, isNuxtApp: boolean, isNextApp: boolean }} options
+ * @param {{ isNuxtModule: boolean, isNuxtApp: boolean, isNextApp: boolean, isOclifApp: boolean }} options
  */
-export const configFactory = ({ isNuxtModule, isNuxtApp, isNextApp } = {}) => {
+export const configFactory = ({ isNuxtModule, isNuxtApp, isNextApp, isOclifApp } = {}) => {
   const isNuxt = isNuxtModule || isNuxtApp;
 
-  const nuxtAppGlobals = () =>
-    isNuxtApp ?
-      {
-        ref: 'readonly',
-        computed: 'readonly',
-        watch: 'readonly',
-        watchEffect: 'readonly',
-      }
-    : {};
+  const nuxtConfigArray = (enable = isNuxt) => (enable ? [...pluginVue.configs['flat/recommended']] : []);
 
-  const nuxtConfigArray = () => (isNuxt ? pluginVue.configs['flat/recommended'] : []);
-
-  const nuxtRules = () =>
-    isNuxt ?
+  const nuxtRules = (enable = isNuxt) =>
+    enable ?
       {
+        // Disabling no-undef rule for Nuxt apps as we are not generating a list of all globals.
+        'no-undef': 'off',
         'vue/multi-word-component-names': 'off',
       }
     : {};
 
-  const nextConfigArray = () =>
-    isNextApp ?
+  const nextConfigArray = (enable = isNextApp) =>
+    enable ?
       compat.config({
         extends: ['next', 'next/core-web-vitals', 'next/typescript'],
       })
     : [];
 
+  const oclifRules = (enable = isOclifApp) =>
+    enable ?
+      {
+        // Disallow all console statements in oclif apps
+        'no-console': 'error',
+      }
+    : {};
+
   return tseslint.config(
-    { ignores: ['*.d.ts', '**/coverage', '**/dist'] },
+    gitignore(),
+    { ignores: ['*.d.ts', '**/coverage', '**/dist', '**/.nuxt', '**/.output', '**/dist', '**/build'] },
     eslint.configs.recommended,
     ...tseslint.configs.recommended,
     eslintPluginImportX.flatConfigs.recommended,
@@ -53,15 +55,22 @@ export const configFactory = ({ isNuxtModule, isNuxtApp, isNextApp } = {}) => {
     {
       files: ['**/*.{js,mjs,cjs,jsx,mjsx,ts,tsx,mtsx,vue}'],
       plugins: { 'unused-imports': unusedImports },
+      settings: {
+        'import-x/internal-regex': '^@laioutr',
+      },
       languageOptions: {
         ecmaVersion: 'latest',
         sourceType: 'module',
         globals: {
           ...globals.browser,
-          ...nuxtAppGlobals(),
+          ...globals.es2021,
+          ...globals.node,
         },
         parserOptions: {
           parser: tseslint.parser,
+          ecmaFeatures: {
+            jsx: true,
+          },
         },
       },
       rules: {
@@ -154,7 +163,6 @@ export const configFactory = ({ isNuxtModule, isNuxtApp, isNextApp } = {}) => {
         ],
 
         'import-x/no-dynamic-require': 'warn',
-        'import-x/no-nodejs-modules': 'warn',
         'import-x/order': [
           'error',
           {
@@ -181,6 +189,15 @@ export const configFactory = ({ isNuxtModule, isNuxtApp, isNextApp } = {}) => {
         '@typescript-eslint/no-explicit-any': 'off',
 
         ...nuxtRules(),
+        ...oclifRules(),
+      },
+    },
+    {
+      /** Playground files have same configuration as nuxt-apps */
+      files: ['**/playground/**/*.{js,mjs,cjs,jsx,mjsx,ts,tsx,mtsx,vue}'],
+      rules: {
+        // Console-statements are allowed in playgrounds
+        'no-console': 'off',
       },
     },
     eslintConfigPrettier

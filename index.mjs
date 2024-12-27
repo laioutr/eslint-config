@@ -1,3 +1,3 @@
-import { configFactory } from './factory';
+import { configFactory } from './factory.mjs';
 
 export default configFactory();
