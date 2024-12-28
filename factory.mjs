@@ -45,7 +45,7 @@ export const configFactory = ({ isNuxtModule, isNuxtApp, isNextApp, isOclifApp }
 
   return tseslint.config(
     gitignore(),
-    { ignores: ['*.d.ts', '**/coverage', '**/dist', '**/.nuxt', '**/.output', '**/dist', '**/build'] },
+    { ignores: ['*.d.ts', '**/coverage', '**/dist', '**/.nuxt', '**/.output', '**/dist', '**/build', '**/.next'] },
     eslint.configs.recommended,
     ...tseslint.configs.recommended,
     eslintPluginImportX.flatConfigs.recommended,
