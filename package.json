@@ -14,7 +14,7 @@
     "./oclif": "./oclif.mjs"
   },
   "devDependencies": {
-    "@laioutr/prettier-config": "^1.0.0",
+    "@laioutr/prettier-config": "^1.1.0",
     "prettier": "^3.2.5"
   },
   "dependencies": {
