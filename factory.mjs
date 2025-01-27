@@ -174,6 +174,19 @@ export const configFactory = ({ isNuxtModule, isNuxtApp, isNextApp, isOclifApp }
             'newlines-between': 'ignore',
           },
         ],
+        'import-x/no-unresolved': [
+          'error',
+          {
+            ignore: [
+              '^#build',
+              // Ignore these as they may not be found when in dev-mode/using stubs.
+              '@laioutr-core/frontend-core/runtime',
+              '@laioutr-core/canonical-types/common',
+              '@laioutr-core/canonical-types/orchestr',
+            ],
+          },
+        ],
+
         'sort-imports': [
           'error',
           {
