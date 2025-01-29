@@ -17,6 +17,7 @@ const compat = new FlatCompat({ baseDirectory: import.meta.dirname });
 export const configFactory = ({ isNuxtModule, isNuxtApp, isNextApp, isOclifApp } = {}) => {
   const isNuxt = isNuxtModule || isNuxtApp;
 
+  // TODO add vue-i18n eslint
   const nuxtConfigArray = (enable = isNuxt) => (enable ? [...pluginVue.configs['flat/recommended']] : []);
 
   const nuxtRules = (enable = isNuxt) =>
@@ -181,8 +182,7 @@ export const configFactory = ({ isNuxtModule, isNuxtApp, isNextApp, isOclifApp }
               '^#build',
               // Ignore these as they may not be found when in dev-mode/using stubs.
               '@laioutr-core/frontend-core/runtime',
-              '@laioutr-core/canonical-types/common',
-              '@laioutr-core/canonical-types/orchestr',
+              '^@laioutr-core/canonical-types/',
             ],
           },
         ],
