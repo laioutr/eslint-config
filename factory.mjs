@@ -183,6 +183,7 @@ export const configFactory = ({ isNuxtModule, isNuxtApp, isNextApp, isOclifApp }
               // Ignore these as they may not be found when in dev-mode/using stubs.
               '@laioutr-core/frontend-core/runtime',
               '^@laioutr-core/canonical-types/',
+              '^@laioutr-core/orchestr/',
             ],
           },
         ],
