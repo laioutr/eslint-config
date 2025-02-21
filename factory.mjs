@@ -26,6 +26,17 @@ export const configFactory = ({ isNuxtModule, isNuxtApp, isNextApp, isOclifApp }
         // Disabling no-undef rule for Nuxt apps as we are not generating a list of all globals.
         'no-undef': 'off',
         'vue/multi-word-component-names': 'off',
+
+        // Ignore unused `props` variable in Vue components
+        'unused-imports/no-unused-vars': [
+          'warn',
+          {
+            vars: 'all',
+            varsIgnorePattern: isNuxt ? '(^_|props)' : '^_',
+            args: 'after-used',
+            argsIgnorePattern: '^_',
+          },
+        ],
       }
     : {};
 
