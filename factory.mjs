@@ -195,6 +195,7 @@ export const configFactory = ({ isNuxtModule, isNuxtApp, isNextApp, isOclifApp }
               '@laioutr-core/frontend-core/runtime',
               '^@laioutr-core/canonical-types/',
               '^@laioutr-core/orchestr/',
+              '@laioutr-core/ui', // unocss config is not available in stubs
             ],
           },
         ],
