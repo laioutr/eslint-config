@@ -193,9 +193,10 @@ export const configFactory = ({ isNuxtModule, isNuxtApp, isNextApp, isOclifApp }
               '^#build',
               // Ignore these as they may not be found when in dev-mode/using stubs.
               '@laioutr-core/frontend-core/runtime',
-              '^@laioutr-core/canonical-types/',
+              '^@laioutr-core/canonical-types',
               '^@laioutr-core/orchestr/',
               '@laioutr-core/ui', // unocss config is not available in stubs
+              '@laioutr-core/ui-kit', // unocss config is not available in stubs
               'json-schema', // @types only import, not an actual module
             ],
           },
