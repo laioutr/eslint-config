@@ -163,6 +163,13 @@ export const configFactory = ({ isNuxtModule, isNuxtApp, isNextApp, isOclifApp }
         'vars-on-top': 'error',
         yoda: 'error',
 
+        'no-restricted-imports': [
+          'error',
+          {
+            patterns: ['**/.nuxt', '**/.nuxt/*'],
+          },
+        ],
+
         'unused-imports/no-unused-imports': 'error',
         'unused-imports/no-unused-vars': [
           'warn',
