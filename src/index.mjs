@@ -3,5 +3,5 @@ import { defineConfig } from 'eslint/config';
 
 export default configFactory();
 
-/** Re-exported tseslint.config */
+/** Re-exported defineConfig */
 export const extendConfig = defineConfig;
