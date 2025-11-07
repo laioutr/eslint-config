@@ -6,11 +6,14 @@
   "license": "MIT",
   "author": "Sebastian Langer <sebastian.langer@laioutr.com>",
   "exports": {
-    ".": "./index.mjs",
-    "./nuxt-app": "./nuxt-app.mjs",
-    "./nuxt-module": "./nuxt-module.mjs",
-    "./next": "./next.mjs",
-    "./oclif": "./oclif.mjs"
+    ".": "./src/index.mjs",
+    "./nuxt-app": "./nuxt-src/app.mjs",
+    "./nuxt-module": "./nuxt-src/module.mjs",
+    "./next": "./src/next.mjs",
+    "./oclif": "./src/oclif.mjs"
+  },
+  "scripts": {
+    "release": "changelogen --release && pnpm publish --access public && git push --follow-tags"
   },
   "prettier": "@laioutr/prettier-config",
   "dependencies": {
@@ -29,6 +32,7 @@
   },
   "devDependencies": {
     "@laioutr/prettier-config": "^1.1.0",
+    "changelogen": "^0.6.2",
     "prettier": "^3.5.3"
   }
 }

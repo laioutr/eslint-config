@@ -8,6 +8,7 @@ import globals from 'globals';
 import gitignore from 'eslint-config-flat-gitignore';
 
 import { FlatCompat } from '@eslint/eslintrc';
+import { defineConfig } from 'eslint/config';
 
 const compat = new FlatCompat({ baseDirectory: import.meta.dirname });
 
@@ -67,7 +68,7 @@ export const configFactory = ({ isNuxtModule, isNuxtApp, isNextApp, isOclifApp }
       }
     : {};
 
-  return tseslint.config(
+  return defineConfig(
     gitignore(),
     { ignores: ['*.d.ts', '**/coverage', '**/dist', '**/.nuxt', '**/.output', '**/dist', '**/build', '**/.next'] },
     eslint.configs.recommended,
