@@ -40,6 +40,18 @@ export const configFactory = ({ isNuxtModule, isNuxtApp, isNextApp, isOclifApp }
       }
     : {};
 
+  const nuxtModuleRules = (enable = isNuxtModule) =>
+    enable ?
+      {
+        'no-restricted-imports': [
+          'error',
+          {
+            patterns: ['**/.nuxt', '**/.nuxt/*', '~/**', '@/**', '~~/**', '@@/**'],
+          },
+        ],
+      }
+    : {};
+
   const nextConfigArray = (enable = isNextApp) =>
     enable ?
       compat.config({
@@ -224,6 +236,7 @@ export const configFactory = ({ isNuxtModule, isNuxtApp, isNextApp, isOclifApp }
         '@typescript-eslint/no-explicit-any': 'off',
 
         ...nuxtRules(),
+        ...nuxtModuleRules(),
         ...oclifRules(),
       },
     },
