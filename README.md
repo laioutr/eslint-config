@@ -19,7 +19,7 @@ pnpm add -D @laioutr/eslint-config
 ## Quick Setup
 
 This package exports the following configs:
-- `@laioutr/eslint-config` - The default config for Laioutr projects, plus an additional `extendConfig` function for type-safe extension.
+- `@laioutr/eslint-config` - The default config for Laioutr projects without any framework specific rules.
 - `@laioutr/eslint-config/nuxt-app` - The config for Nuxt apps.
 - `@laioutr/eslint-config/nuxt-module` - The config for Nuxt modules and Laioutr App packages.
 - `@laioutr/eslint-config/next` - The config for Next.js apps.
