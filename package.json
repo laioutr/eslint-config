@@ -7,8 +7,8 @@
   "author": "Sebastian Langer <sebastian.langer@laioutr.com>",
   "exports": {
     ".": "./src/index.mjs",
-    "./nuxt-app": "./nuxt-src/app.mjs",
-    "./nuxt-module": "./nuxt-src/module.mjs",
+    "./nuxt-app": "./src/app.mjs",
+    "./nuxt-module": "./src/module.mjs",
     "./next": "./src/next.mjs",
     "./oclif": "./src/oclif.mjs"
   },
