@@ -1,5 +1,17 @@
 # Changelog
 
+## v1.8.0
+
+[compare changes](https://github.com/laioutr/eslint-config/compare/v1.7.0...v1.8.0)
+
+### 🚀 Enhancements
+
+- Re-export extendConfig from eslint/config ([51529606](https://github.com/laioutr/eslint-config/commit/51529606))
+
+### ❤️ Contributors
+
+- Sebastian Langer <sebastian.langer@laioutr.com>
+
 ## v1.7.0
 
 
