@@ -1,5 +1,21 @@
 # Changelog
 
+## v1.8.1
+
+[compare changes](https://github.com/laioutr/eslint-config/compare/v1.8.0...v1.8.1)
+
+### 🩹 Fixes
+
+- Remove typescript dependency ([6f2f1bea](https://github.com/laioutr/eslint-config/commit/6f2f1bea))
+
+### 🏡 Chore
+
+- Update docs for extendConfig fn ([d3591316](https://github.com/laioutr/eslint-config/commit/d3591316))
+
+### ❤️ Contributors
+
+- Sebastian Langer <sebastian.langer@laioutr.com>
+
 ## v1.8.0
 
 [compare changes](https://github.com/laioutr/eslint-config/compare/v1.7.0...v1.8.0)
