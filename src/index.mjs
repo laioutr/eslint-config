@@ -1,4 +1,7 @@
 import { configFactory } from './factory.mjs';
-import tseslint from 'typescript-eslint';
+import { defineConfig } from 'eslint/config';
 
 export default configFactory();
+
+/** Re-exported tseslint.config */
+export const extendConfig = defineConfig;
