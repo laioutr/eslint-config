@@ -1,5 +1,17 @@
 # Changelog
 
+## v1.8.6
+
+[compare changes](https://github.com/laioutr/eslint-config/compare/v1.8.5...v1.8.6)
+
+### 🩹 Fixes
+
+- Tseslint config ([91715b01](https://github.com/laioutr/eslint-config/commit/91715b01))
+
+### ❤️ Contributors
+
+- Sebastian Langer <sebastian.langer@laioutr.com>
+
 ## v1.8.5
 
 [compare changes](https://github.com/laioutr/eslint-config/compare/v1.8.4...v1.8.5)
