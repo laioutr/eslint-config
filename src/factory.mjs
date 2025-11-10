@@ -84,6 +84,7 @@ export const configFactory = ({ isNuxtModule, isNuxtApp, isNextApp, isOclifApp }
         'import-x/internal-regex': '^@laioutr',
       },
       languageOptions: {
+        parser: tseslint.parser,
         ecmaVersion: 'latest',
         sourceType: 'module',
         globals: {
@@ -92,7 +93,6 @@ export const configFactory = ({ isNuxtModule, isNuxtApp, isNextApp, isOclifApp }
           ...globals.node,
         },
         parserOptions: {
-          parser: tseslint.parser,
           ecmaFeatures: {
             jsx: true,
           },
