@@ -1,5 +1,17 @@
 # Changelog
 
+## v1.8.5
+
+[compare changes](https://github.com/laioutr/eslint-config/compare/v1.8.4...v1.8.5)
+
+### 🩹 Fixes
+
+- Incompatibility between import-x/namespace and zod ([6bb3283a](https://github.com/laioutr/eslint-config/commit/6bb3283a))
+
+### ❤️ Contributors
+
+- Sebastian Langer <sebastian.langer@laioutr.com>
+
 ## v1.8.4
 
 [compare changes](https://github.com/laioutr/eslint-config/compare/v1.8.2...v1.8.4)
