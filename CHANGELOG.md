@@ -1,5 +1,22 @@
 # Changelog
 
+## v1.8.4
+
+[compare changes](https://github.com/laioutr/eslint-config/compare/v1.8.2...v1.8.4)
+
+### 🩹 Fixes
+
+- Export path for nuxt-configs, try #2 ([#2](https://github.com/laioutr/eslint-config/issues/2))
+- Downgrade dependencies to match pre-extraction versions ([11799574](https://github.com/laioutr/eslint-config/commit/11799574))
+
+### 🏡 Chore
+
+- **release:** V1.8.3 ([869c0851](https://github.com/laioutr/eslint-config/commit/869c0851))
+
+### ❤️ Contributors
+
+- Sebastian Langer <sebastian.langer@laioutr.com>
+
 ## v1.8.3
 
 [compare changes](https://github.com/laioutr/eslint-config/compare/v1.8.2...v1.8.3)

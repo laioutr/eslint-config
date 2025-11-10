@@ -1,6 +1,6 @@
 {
   "name": "@laioutr/eslint-config",
-  "version": "1.8.3",
+  "version": "1.8.4",
   "description": "Laioutr ESLint config",
   "repository": "git@github.com:laioutr/eslint-config.git",
   "homepage": "https://www.laioutr.com/",
