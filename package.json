@@ -1,14 +1,15 @@
 {
   "name": "@laioutr/eslint-config",
   "version": "1.8.2",
-  "description": "Laioutr Eslint config",
+  "description": "Laioutr ESLint config",
   "repository": "git@github.com:laioutr/eslint-config.git",
+  "homepage": "https://www.laioutr.com/",
   "license": "MIT",
   "author": "Sebastian Langer <sebastian.langer@laioutr.com>",
   "exports": {
     ".": "./src/index.mjs",
-    "./nuxt-app": "./src/app.mjs",
-    "./nuxt-module": "./src/module.mjs",
+    "./nuxt-app": "./src/nuxt-app.mjs",
+    "./nuxt-module": "./src/nuxt-module.mjs",
     "./next": "./src/next.mjs",
     "./oclif": "./src/oclif.mjs"
   },
