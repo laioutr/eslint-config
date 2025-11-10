@@ -222,6 +222,10 @@ export const configFactory = ({ isNuxtModule, isNuxtApp, isNextApp, isOclifApp }
           },
         ],
 
+        // Disabled due to false positives with libraries like zod that export functions as namespace properties.
+        // Can be turned on after migrating to a compatible zod v4.x.x.
+        'import-x/namespace': 'off',
+
         'sort-imports': [
           'error',
           {
