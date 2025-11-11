@@ -1,5 +1,17 @@
 # Changelog
 
+## v1.8.8
+
+[compare changes](https://github.com/laioutr/eslint-config/compare/v1.8.7...v1.8.8)
+
+### 🩹 Fixes
+
+- Prevent duplicate typescript recommends in next.js ([e0af8bf9](https://github.com/laioutr/eslint-config/commit/e0af8bf9))
+
+### ❤️ Contributors
+
+- Sebastian Langer <sebastian.langer@laioutr.com>
+
 ## v1.8.7
 
 [compare changes](https://github.com/laioutr/eslint-config/compare/v1.8.6...v1.8.7)
