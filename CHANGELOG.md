@@ -1,5 +1,17 @@
 # Changelog
 
+## v1.8.7
+
+[compare changes](https://github.com/laioutr/eslint-config/compare/v1.8.6...v1.8.7)
+
+### 🩹 Fixes
+
+- Add missing typescript dependency ([fcc48491](https://github.com/laioutr/eslint-config/commit/fcc48491))
+
+### ❤️ Contributors
+
+- Sebastian Langer <sebastian.langer@laioutr.com>
+
 ## v1.8.6
 
 [compare changes](https://github.com/laioutr/eslint-config/compare/v1.8.5...v1.8.6)
