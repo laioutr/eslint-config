@@ -72,7 +72,8 @@ export const configFactory = ({ isNuxtModule, isNuxtApp, isNextApp, isOclifApp }
     gitignore(),
     { ignores: ['*.d.ts', '**/coverage', '**/dist', '**/.nuxt', '**/.output', '**/dist', '**/build', '**/.next'] },
     eslint.configs.recommended,
-    ...tseslint.configs.recommended,
+    // Next.js configs already include @typescript-eslint plugin, so skip tseslint.configs.recommended for Next.js apps
+    ...(isNextApp ? [] : tseslint.configs.recommended),
     eslintPluginImportX.flatConfigs.recommended,
     eslintPluginImportX.flatConfigs.typescript,
     ...nuxtConfigArray(),
