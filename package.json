@@ -11,7 +11,8 @@
     "./nuxt-app": "./src/nuxt-app.mjs",
     "./nuxt-module": "./src/nuxt-module.mjs",
     "./next": "./src/next.mjs",
-    "./oclif": "./src/oclif.mjs"
+    "./oclif": "./src/oclif.mjs",
+    "./vue-css-layers": "./src/vue-css-layers.mjs"
   },
   "scripts": {
     "release": "changelogen --release && pnpm publish --access public && git push --follow-tags"
