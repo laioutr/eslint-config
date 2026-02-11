@@ -1,5 +1,17 @@
 # Changelog
 
+## v1.9.2
+
+[compare changes](https://github.com/laioutr/eslint-config/compare/v1.9.1...v1.9.2)
+
+### 🩹 Fixes
+
+- Exclude playground files from require-css-layer rule ([8329dca1](https://github.com/laioutr/eslint-config/commit/8329dca1))
+
+### ❤️ Contributors
+
+- Sebastian Langer <sebastian.langer@laioutr.com>
+
 ## v1.9.1
 
 [compare changes](https://github.com/laioutr/eslint-config/compare/v1.9.0...v1.9.1)
