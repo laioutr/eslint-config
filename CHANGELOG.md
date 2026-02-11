@@ -1,5 +1,17 @@
 # Changelog
 
+## v1.9.0
+
+[compare changes](https://github.com/laioutr/eslint-config/compare/v1.8.8...v1.9.0)
+
+### 🚀 Enhancements
+
+- Add require-css-layer rule for Vue components ([6b3b97ff](https://github.com/laioutr/eslint-config/commit/6b3b97ff))
+
+### ❤️ Contributors
+
+- Sebastian Langer <sebastian.langer@laioutr.com>
+
 ## v1.8.8
 
 [compare changes](https://github.com/laioutr/eslint-config/compare/v1.8.7...v1.8.8)
