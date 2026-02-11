@@ -6,6 +6,7 @@ export default [
       laioutr: { rules: { 'require-css-layer': requireCssLayer } },
     },
     files: ['**/*.vue'],
+    ignores: ['**/playground/**'],
     rules: {
       'laioutr/require-css-layer': 'error',
     },
