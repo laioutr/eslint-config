@@ -1,5 +1,17 @@
 # Changelog
 
+## v1.9.1
+
+[compare changes](https://github.com/laioutr/eslint-config/compare/v1.9.0...v1.9.1)
+
+### 🩹 Fixes
+
+- Use sourceCode.parserServices for document fragment access ([2d0bc941](https://github.com/laioutr/eslint-config/commit/2d0bc941))
+
+### ❤️ Contributors
+
+- Sebastian Langer <sebastian.langer@laioutr.com>
+
 ## v1.9.0
 
 [compare changes](https://github.com/laioutr/eslint-config/compare/v1.8.8...v1.9.0)
