@@ -45,8 +45,6 @@ function isAllLayered(css) {
   // Check trailing content outside braces (e.g. bare declarations without braces)
   const trailing = buffer.trim();
   if (trailing && !trailing.match(/^@layer\s/)) {
-    // Allow only whitespace/empty trailing content
-    // Check if there's any meaningful CSS (not just semicolons or whitespace)
     if (trailing.replace(/[\s;]/g, '').length > 0) {
       return false;
     }
@@ -68,28 +66,34 @@ export const requireCssLayer = {
     schema: [],
   },
   create(context) {
+    const sourceCode = context.getSourceCode();
+    if (!sourceCode.parserServices?.getDocumentFragment) {
+      return {};
+    }
+    const documentFragment = sourceCode.parserServices.getDocumentFragment();
+    if (!documentFragment) {
+      return {};
+    }
+
+    const styleTags = documentFragment.children.filter(
+      (element) => element.type === 'VElement' && element.rawName === 'style',
+    );
+
+    if (styleTags.length === 0) {
+      return {};
+    }
+
     return {
-      // This runs on the root Program node
       Program() {
-        const documentFragment = context.parserServices?.getDocumentFragment?.();
-        if (!documentFragment) return;
-
-        const styles =
-          documentFragment.children?.filter(
-            (node) => node.type === 'VElement' && node.name === 'style',
-          ) ?? [];
-
-        for (const styleNode of styles) {
-          // Get the raw CSS text content from the style element's children
-          const textNodes = styleNode.children?.filter((c) => c.type === 'VText') ?? [];
+        for (const styleTag of styleTags) {
+          const textNodes = styleTag.children?.filter((c) => c.type === 'VText') ?? [];
           const cssContent = textNodes.map((t) => t.value).join('');
 
-          // Skip empty style blocks
           if (!cssContent.trim()) continue;
 
           if (!isAllLayered(cssContent)) {
             context.report({
-              node: styleNode,
+              node: styleTag,
               messageId: 'missingLayer',
             });
           }
