@@ -6,11 +6,31 @@
  */
 
 /**
+ * Checks whether a single `;`-terminated statement is acceptable at the top level.
+ * Allowed:
+ * - empty (whitespace only)
+ * - any at-rule that carries a `layer(<ident>)` clause (e.g. `@import url(...) layer(foo);`)
+ *
+ * @param {string} stmt
+ * @returns {boolean}
+ */
+function isAllowedTopLevelStatement(stmt) {
+  const trimmed = stmt.trim();
+  if (!trimmed) return true;
+  return /^@\w[\w-]*\b[\s\S]*\blayer\s*\(/.test(trimmed);
+}
+
+/**
  * Checks whether CSS content has any top-level rules not inside an @layer block.
  * Uses a brace-depth tracking approach — no postcss dependency required.
  *
+ * Top-level content is allowed when:
+ * - it is fully inside `@layer <name> { ... }` blocks, or
+ * - it is an at-rule statement (ending in `;`) that includes a `layer(<ident>)` clause,
+ *   such as `@import url('./x.css') layer(foo);`.
+ *
  * @param {string} css
- * @returns {boolean} true if all top-level CSS is inside @layer (or only comments)
+ * @returns {boolean} true if all top-level CSS is inside @layer (or only comments/allowed statements)
  */
 function isAllLayered(css) {
   // Strip block comments
@@ -24,9 +44,17 @@ function isAllLayered(css) {
 
     if (ch === '{') {
       if (depth === 0) {
-        // Check if the accumulated buffer is an @layer declaration
-        const trimmed = buffer.trim();
-        if (trimmed && !trimmed.match(/^@layer\s/)) {
+        // The buffer holds everything since the previous `}` (or start of input).
+        // Split it into `;`-terminated statements; the final chunk is the header of the block we're entering.
+        const parts = buffer.split(';');
+        const header = parts.pop() ?? '';
+        for (const part of parts) {
+          if (!isAllowedTopLevelStatement(part)) {
+            return false;
+          }
+        }
+        // The rule that owns these braces must be @layer.
+        if (!header.trim().match(/^@layer\b/)) {
           return false;
         }
         buffer = '';
@@ -42,11 +70,12 @@ function isAllLayered(css) {
     }
   }
 
-  // Check trailing content outside braces (e.g. bare declarations without braces)
-  const trailing = buffer.trim();
-  if (trailing && !trailing.match(/^@layer\s/)) {
-    if (trailing.replace(/[\s;]/g, '').length > 0) {
-      return false;
+  // Trailing content outside braces — every statement must be allowed.
+  if (buffer.trim()) {
+    for (const part of buffer.split(';')) {
+      if (!isAllowedTopLevelStatement(part)) {
+        return false;
+      }
     }
   }
 

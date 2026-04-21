@@ -1,5 +1,15 @@
 # Changelog
 
+## v1.9.3
+
+### 🩹 Fixes
+
+- Allow top-level at-rules with a `layer(<ident>)` clause (e.g. `@import url('./shared.css') layer(lui-components);`) in Vue `<style>` blocks under the `require-css-layer` rule.
+
+### ❤️ Contributors
+
+- Sebastian Langer <sebastian.langer@laioutr.com>
+
 ## v1.9.2
 
 [compare changes](https://github.com/laioutr/eslint-config/compare/v1.9.1...v1.9.2)
