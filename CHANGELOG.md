@@ -1,5 +1,17 @@
 # Changelog
 
+## v1.9.4
+
+[compare changes](https://github.com/laioutr/eslint-config/compare/v1.9.2...v1.9.4)
+
+### 🏡 Chore
+
+- Release 1.9.3 ([ed12275e](https://github.com/laioutr/eslint-config/commit/ed12275e))
+
+### ❤️ Contributors
+
+- Sebastian Langer <sebastian.langer@laioutr.com>
+
 ## v1.9.3
 
 ### 🩹 Fixes
