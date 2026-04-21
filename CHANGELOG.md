@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.9.5
+
+[compare changes](https://github.com/laioutr/eslint-config/compare/v1.9.4...v1.9.5)
+
 ## v1.9.4
 
 [compare changes](https://github.com/laioutr/eslint-config/compare/v1.9.2...v1.9.4)
